@@ -36,7 +36,7 @@ cube = [
 
 def show_cube(cube):
     '''显示魔方“上下左右前”五个面'''
-    print('依次为 前 后 左 右 上 下:')
+    print('前 后 左 右 上 下:')
     for c in cube:
         for i, j in enumerate(c):
             if (i+1)%3 == 0:
@@ -179,12 +179,15 @@ def rules(cube, cmd):
         func_list[i](cube, cmd_list[i])
 
 
-# main
-formula = 'B! U L! U! B! R! F! D! L F L F U U L U U L! B B U L L U L! B! D! B L L F F L L'
-f_list = formula.split(' ')
-os.system('cls')
-#show_cube(cube)
-for f in f_list:
-    rules(cube, f)
+def main():
+    formula = 'B! U L! U! B! R! F! D! L F L F U U L U U L! B B U L L U L! B! D! B L L F F L L'
+    f_list = formula.split(' ')
+    os.system('cls')
+    for f in f_list:
+        rules(cube, f)
+    print('打乱公式：%s' % formula)
+    show_cube(cube)
 
-show_cube(cube)
+
+if __name__ == '__main__':
+    main()
